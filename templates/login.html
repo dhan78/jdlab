@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JD Lab - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a237e;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #1a237e;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #283593;
+        }
+        h1 {
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .error-message {
+            color: #f44336;
+            margin-bottom: 15px;
+            text-align: center;
+            background-color: rgba(244, 67, 54, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .company-info {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="logo">
+            <h1>JD Dental Lab</h1>
+        </div>
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+        <form method="post" autocomplete="off">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" 
+                       id="email" 
+                       name="email" 
+                       value="admin@jdlab.com" 
+                       readonly 
+                       autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" 
+                       id="password" 
+                       name="password" 
+                       required 
+                       placeholder="Enter your password"
+                       autocomplete="new-password"
+                       autocapitalize="off"
+                       autocorrect="off">
+            </div>
+            <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+        <div class="company-info">
+            <p>Professional Dental Laboratory Services</p>
+            <p>© 2024 JD Dental Lab. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html> 
